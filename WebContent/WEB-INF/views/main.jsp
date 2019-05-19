@@ -8,23 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<table>
-		<tr>
-			<th>Name</th>
-			<th>Last Name</th>
-			<th>Age</th>
-			<th>Status</th>
-		</tr>
-		<c:forEach items="${students}" var="students">
-			<tr>
-					<td>${students.sName}</td>
-					<td>${students.lName}</td>
-					<td>${students.sAge}</td>
-					<td>${students.activoDelegate}</td>
-			</tr>
-		</c:forEach>
 	
-	</table>
 	
 	<form method="POST" action="${pageContext.request.contextPath}/form">
 		<h1>Buscador de Estudiantes</h1>
@@ -32,5 +16,40 @@
 		<input type="text" name="code">
 		<input type="submit" name="enviar" value="Buscar">
 	</form>
+	<br>
+	<form action="${pageContext.request.contextPath}/save" method = "post">
+		<input type="submit" value="Agregar nuevo usuario">
+	</form>
+	<br>
+	<form action="${pageContext.request.contextPath}/delete" method="post"> 
+		<label>Eliminar: </label><input type="text" name="name">
+		<input type="submit" value="Delete">
+	</form>
+	<br>
+	
+	<table>
+		<tr><th>Option</th>
+			<th>Name</th>
+			<th>Last Name</th>
+			<th>Age</th>
+			<th>Status</th>
+		</tr>
+		<c:forEach items="${students}" var="students">
+			<tr>
+					<th><form action="${pageContext.request.contextPath}/edit" method="post">
+            		<input type="hidden" name="code" value= "${students.cStudent }">
+            		<input type="Submit" value="Editar">
+					</form></th>
+					<td>${students.sName}</td>
+					<td>${students.lName}</td>
+					<td>${students.sAge}</td>
+					<td>${students.activoDelegate}</td>
+					
+			</tr>
+		</c:forEach>
+	
+	</table>
+	
+	
 </body>
 </html>

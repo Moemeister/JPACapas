@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,5 +22,6 @@
 				<td>${students.activoDelegate}</td>
 			</tr>
 	</table>
+	
 </body>
 </html>
